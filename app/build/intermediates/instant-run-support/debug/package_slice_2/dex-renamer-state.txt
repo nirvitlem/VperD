@@ -1,0 +1,4 @@
+#Mon Mar 26 12:20:22 IDT 2018
+base.0=C\:\\Users\\nirv\\AndroidStudioProjects\\VperD\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3
+path.0=classes.dex
+renamed.0=classes.dex
