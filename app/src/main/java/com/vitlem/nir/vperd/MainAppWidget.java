@@ -7,10 +7,15 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -26,6 +31,9 @@ public class MainAppWidget extends AppWidgetProvider {
     public static boolean runService = true;
     private static final String ClickToOff = "ClickToOffTag";
     public static final String ClickOnME= "ClickW";
+    private static final String PREFS_NAME = "com.vitlem.nir.vperd.DefActivity";
+    private static final String PREF_PREFIX_KEY = "DefActivity_";
+    static List<String> listItems;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
@@ -39,6 +47,8 @@ public class MainAppWidget extends AppWidgetProvider {
 
         Intent intent = new Intent(context, MainAppWidget.class);
         intent.setAction(ClickOnME);
+
+        listItems= loadTitlePref(context,1);
 
         appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
     }
@@ -159,6 +169,25 @@ if (runService)
 
         }
 
+    }
+
+    // Read the prefix from the SharedPreferences object for this widget.
+    // If there is no preference saved, get the default from a resource
+    static List<String> loadTitlePref(Context context, int appWidgetId) {
+        List<String> tasksList = new ArrayList<String>();
+        try {
+            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            Set<String> tasksSet = prefs.getStringSet(PREF_PREFIX_KEY + appWidgetId, new HashSet<String>());
+            tasksList = new ArrayList<String>(tasksSet);
+            editor.commit();
+            return tasksList;
+        }
+        catch (Exception e)
+        {
+            Log.d("loadTitlePref",e.getMessage());
+        }
+        return tasksList;
     }
 }
 

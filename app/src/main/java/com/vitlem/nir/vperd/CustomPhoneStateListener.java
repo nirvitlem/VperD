@@ -34,7 +34,14 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                 Log.i(LOG_TAG, "onCallStateChanged: CALL_STATE_RINGING");
                 Log.i(LOG_TAG, "incomingNumber: " + incomingNumber);
                 //MyService.runGetVolumep();
-                if (incomingNumber.equals("0543205519") || incomingNumber.equals("0506406883") || incomingNumber.equals("0522945298") || incomingNumber.equals("089719890")  ) MyService.runGetVolumep();
+
+                for (String item : MainAppWidget.listItems)
+                {
+                    if (incomingNumber.equals(item.split("#")[0].toString())) MyService.runGetVolumep();
+                }
+
+                //if (incomingNumber.equals("0543205519") || incomingNumber.equals("0506406883") || incomingNumber.equals("0522945298") || incomingNumber.equals("089719890")  ) MyService.runGetVolumep();
+
                 break;
             case TelephonyManager.CALL_STATE_OFFHOOK:
                 Log.i(LOG_TAG, "onCallStateChanged: CALL_STATE_OFFHOOK");

@@ -38,6 +38,7 @@ public class MyService extends Service {
     public static AudioManager audio;
     public static Uri alertUri;
     public static Ringtone r;
+    private static  Location location=null;
     TelephonyManager tManager;
 
 
@@ -74,7 +75,7 @@ public class MyService extends Service {
         );
         LocationManager locationManager;
         boolean isGPSEnabled = false;
-        Location location=null; // location
+        location=null; // location
         double latitude=0; // latitude
         double longitude=0; // longitude
         // The minimum distance to change Updates in meters
@@ -117,11 +118,11 @@ public class MyService extends Service {
                         Log.d("longitude",String.valueOf(longitude)+ " TimeUpdate  " + Calendar.getInstance().getTime());
                         //view.setInt(R.layout.main_app_widget,"setBackgroundColor", Color.GREEN);
                         if (GPSorN) view.setTextColor(R.id.appwidget_text, Color.GREEN); else  view.setTextColor(R.id.appwidget_text, Color.MAGENTA);
-                        Location lb= new Location("point B");
+                      /*  Location lb= new Location("point B");
                         lb.setLatitude(xLoc);
                         lb.setLongitude(yLoc);
                         dis=  location.distanceTo(lb)/1000;
-                        StatusM= "Lat " + latitude  + " \nLon " + longitude + " \ndistance " + String.valueOf(dis);
+                        StatusM= "Lat " + latitude  + " \nLon " + longitude + " \ndistance " + String.valueOf(dis);*/
                     }
                     else
                     {
@@ -169,12 +170,32 @@ public class MyService extends Service {
         super.onDestroy();
     }
 
-    static void runGetVolumep()
-    {
+    static void runGetVolumep() {
         Log.i("runGetVolumep", "runGetVolumep");
-        new MyService().getVoulumeP(dis) ;
-        Log.i("runGetVolumep", String.valueOf(dis));
-        Log.i("runGetVolumep", "runGetVolumep");
+        for (String item : MainAppWidget.listItems) {
+            Location lb = new Location("point B");
+
+                if (item.split("#")[1].toString() != "0") {
+                    if (location!=null) {
+                        lb.setLatitude(Double.valueOf(item.split("#")[1]));
+                        lb.setLongitude(Double.valueOf(item.split("#")[2]));
+                        dis = location.distanceTo(lb) / 1000;
+                        Log.i("runGetVolumep", String.valueOf(dis));
+                        if (dis>=Double.valueOf(item.split("#")[3])) {
+                            new MyService().getVoulumeP();
+                            Log.i("runGetVolumep", "runGetVolumep");
+                        }
+                    }else
+                    {
+                        Log.i("runGetVolumep", "location is null");
+                    }
+                } else {
+
+                    new MyService().getVoulumeP();
+                    Log.i("runGetVolumep", "runGetVolumep");
+                }
+
+            }
     }
 
     static void StopPalyPlayer()
@@ -190,10 +211,10 @@ public class MyService extends Service {
         }
     }
 
-    private double getVoulumeP(float dist)
+    private double getVoulumeP()
     {
         try {
-            Log.i("getVoulumeP", String.valueOf(dist));
+           // Log.i("getVoulumeP", String.valueOf(dist));
             //audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
 // Get the current ringer volume as a percentage of the max ringer volume.
@@ -210,19 +231,17 @@ public class MyService extends Service {
 
 // Set the music stream volume.
             audio.setStreamVolume(AudioManager.STREAM_MUSIC, desiredMusicVolume, 0 /*flags*/);
-            Log.i("getVoulumeP", String.valueOf(dist));
-            if(dist>1)
-            {
-                if (proportion<0.5)
-                {
-                    audio.setStreamVolume(AudioManager.STREAM_RING,maxRingerVolume,AudioManager.FLAG_PLAY_SOUND);
 
-                    if(r != null && !r.isPlaying()){
-                        r.play();
 
-                    }
+            if (proportion < 0.5) {
+                audio.setStreamVolume(AudioManager.STREAM_RING, maxRingerVolume, AudioManager.FLAG_PLAY_SOUND);
+
+                if (r != null && !r.isPlaying()) {
+                    r.play();
+
                 }
             }
+
 
             return proportion;
         }

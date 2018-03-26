@@ -117,7 +117,7 @@ public class DefActivity extends AppCompatActivity {
             }
             else
             {
-                listItems.add(tT.getText() + "#" );
+                listItems.add(tT.getText() + "#0#0#0");
                 //adapter.addAll(listItems);
                 adapter.notifyDataSetChanged();
             }
