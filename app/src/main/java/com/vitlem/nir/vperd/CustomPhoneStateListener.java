@@ -25,6 +25,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
     @Override
     public void onCallStateChanged(int state, String incomingNumber) {
         super.onCallStateChanged(state, incomingNumber);
+        if (incomingNumber== null) incomingNumber="null";
         switch (state) {
             case TelephonyManager.CALL_STATE_IDLE:
                 Log.i(LOG_TAG, "onCallStateChanged: CALL_STATE_IDLE");
