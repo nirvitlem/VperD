@@ -89,7 +89,7 @@ public class MainAppWidgetConfigureActivity extends Activity {
         // out of the widget placement if the user presses the back button.
 
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE},
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE },
                 MY_PERMISSIONS_REQUEST_LOC_GPS);
 
         setResult(RESULT_CANCELED);

@@ -181,6 +181,7 @@ public class MyService extends Service {
                         lb.setLongitude(Double.valueOf(item.split("#")[2]));
                         dis = location.distanceTo(lb) / 1000;
                         Log.i("runGetVolumep", String.valueOf(dis));
+                        StatusM= "Lat " + Double.valueOf(item.split("#")[1]).toString()  + " \nLon " + Double.valueOf(item.split("#")[2]).toString() + " \ndistance " + String.valueOf(dis);
                         if (dis>=Double.valueOf(item.split("#")[3])) {
                             new MyService().getVoulumeP();
                             Log.i("runGetVolumep", "runGetVolumep");

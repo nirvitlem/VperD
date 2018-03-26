@@ -37,7 +37,10 @@ public class CustomPhoneStateListener extends PhoneStateListener {
 
                 for (String item : MainAppWidget.listItems)
                 {
-                    if (incomingNumber.equals(item.split("#")[0].toString())) MyService.runGetVolumep();
+                    if (incomingNumber.equals(item.split("#")[0].toString())) {
+                        MainAppWidget.remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber);
+                        MyService.runGetVolumep();
+                    }
                 }
 
                 //if (incomingNumber.equals("0543205519") || incomingNumber.equals("0506406883") || incomingNumber.equals("0522945298") || incomingNumber.equals("089719890")  ) MyService.runGetVolumep();
