@@ -1,9 +1,13 @@
 package com.vitlem.nir.vperd;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 import java.util.List;
 
@@ -39,7 +43,15 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                 for (String item : MainAppWidget.listItems)
                 {
                     if (incomingNumber.equals(item.split("#")[0].toString())) {
-                        MainAppWidget.remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber);
+
+                        Context context = MainAppWidget.c;
+                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.main_app_widget);
+                        ComponentName thisWidget = new ComponentName(context, MainAppWidget.class);
+                        remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber + System.currentTimeMillis());
+                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+
+
                         MyService.runGetVolumep();
                     }
                 }

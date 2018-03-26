@@ -28,6 +28,7 @@ public class MainAppWidget extends AppWidgetProvider {
     public static Calendar TIME=null;
     public static Intent i=null;
     static RemoteViews remoteViews;
+    static Context c  ;
     public static boolean runService = true;
     private static final String ClickToOff = "ClickToOffTag";
     public static final String ClickOnME= "ClickW";
@@ -39,7 +40,7 @@ public class MainAppWidget extends AppWidgetProvider {
                                 int appWidgetId) {
 
         Log.d("debug", "onUpdate");
-
+        c= context;
         CharSequence widgetText = MainAppWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
         // Construct the RemoteViews object
         remoteViews = new RemoteViews(context.getPackageName(), R.layout.main_app_widget);
