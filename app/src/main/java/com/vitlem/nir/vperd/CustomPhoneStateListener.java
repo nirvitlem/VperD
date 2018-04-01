@@ -42,16 +42,17 @@ public class CustomPhoneStateListener extends PhoneStateListener {
 
                 for (String item : MainAppWidget.listItems)
                 {
+
+                    Context context = MainAppWidget.c;
+                    AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                    RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.main_app_widget);
+                    ComponentName thisWidget = new ComponentName(context, MainAppWidget.class);
+                    remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber + " " + System.currentTimeMillis());
+                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+
                     if (incomingNumber.equals(item.split("#")[0].toString())) {
 
-                        Context context = MainAppWidget.c;
-                        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-                        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.main_app_widget);
-                        ComponentName thisWidget = new ComponentName(context, MainAppWidget.class);
-                        remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber + System.currentTimeMillis());
-                        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-
-
+                        remoteViews.setTextViewText(R.id.appwidget_text,"!! " + incomingNumber + " " +System.currentTimeMillis());
                         MyService.runGetVolumep();
                     }
                 }

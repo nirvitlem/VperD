@@ -4,9 +4,9 @@ ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifes
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
-MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\796d9cd47df4aa081c284736ea8e58eb\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91fc8bbd28fbbc7ae9e3ff547e451d1c\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\3c9fb870f14d17d4eaf299787d655a04\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\6e133c3adfb9fa642d05e3e8c49c8ac1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e28093458c7fba8222ff3369dbf329c7\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\2edd9c75eec8736a9dcda73d99cf27ca\AndroidManifest.xml:17:1-24:12
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:2:1-45:12
@@ -42,12 +42,12 @@ ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifes
 		ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:8:22-77
 application
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:10:5-43:19
-MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\796d9cd47df4aa081c284736ea8e58eb\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\796d9cd47df4aa081c284736ea8e58eb\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91fc8bbd28fbbc7ae9e3ff547e451d1c\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91fc8bbd28fbbc7ae9e3ff547e451d1c\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\3c9fb870f14d17d4eaf299787d655a04\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\3c9fb870f14d17d4eaf299787d655a04\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\6e133c3adfb9fa642d05e3e8c49c8ac1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\6e133c3adfb9fa642d05e3e8c49c8ac1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e28093458c7fba8222ff3369dbf329c7\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e28093458c7fba8222ff3369dbf329c7\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\2edd9c75eec8736a9dcda73d99cf27ca\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\2edd9c75eec8736a9dcda73d99cf27ca\AndroidManifest.xml:22:5-20
 	android:supportsRtl
 		ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:15:9-35
 	android:label
@@ -64,7 +64,7 @@ receiver#com.vitlem.nir.vperd.MainAppWidget
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:17:9-25:20
 	android:name
 		ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:17:19-48
-intent-filter#android.appwidget.action.APPWIDGET_UPDATE
+intent-filter#action:name:android.appwidget.action.APPWIDGET_UPDATE
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:18:13-20:29
 action#android.appwidget.action.APPWIDGET_UPDATE
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:19:17-84
@@ -80,7 +80,7 @@ activity#com.vitlem.nir.vperd.MainAppWidgetConfigureActivity
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:27:9-31:20
 	android:name
 		ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:27:19-65
-intent-filter#android.appwidget.action.APPWIDGET_CONFIGURE
+intent-filter#action:name:android.appwidget.action.APPWIDGET_CONFIGURE
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:28:13-30:29
 action#android.appwidget.action.APPWIDGET_CONFIGURE
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:29:17-87
@@ -98,7 +98,7 @@ activity#com.vitlem.nir.vperd.DefActivity
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:38:9-42:20
 	android:name
 		ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:38:19-46
-intent-filter#android.intent.action.MAIN
+intent-filter#action:name:android.intent.action.MAIN
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:39:13-41:29
 action#android.intent.action.MAIN
 ADDED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml:40:17-69
@@ -108,12 +108,12 @@ uses-sdk
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\796d9cd47df4aa081c284736ea8e58eb\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\796d9cd47df4aa081c284736ea8e58eb\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91fc8bbd28fbbc7ae9e3ff547e451d1c\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\91fc8bbd28fbbc7ae9e3ff547e451d1c\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\3c9fb870f14d17d4eaf299787d655a04\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\3c9fb870f14d17d4eaf299787d655a04\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\6e133c3adfb9fa642d05e3e8c49c8ac1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.0.0.aar\6e133c3adfb9fa642d05e3e8c49c8ac1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e28093458c7fba8222ff3369dbf329c7\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\e28093458c7fba8222ff3369dbf329c7\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\2edd9c75eec8736a9dcda73d99cf27ca\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.0] C:\Users\nirv\.gradle\caches\transforms-1\files-1.1\support-v4-23.0.0.aar\2edd9c75eec8736a9dcda73d99cf27ca\AndroidManifest.xml:20:5-43
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\nirv\AndroidStudioProjects\VperD\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
