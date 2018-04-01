@@ -1,13 +1,13 @@
 package com.vitlem.nir.vperd;
 
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.Context;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.RemoteViews;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -29,9 +29,22 @@ public class CustomPhoneStateListener extends PhoneStateListener {
     @Override
     public void onCallStateChanged(int state, String incomingNumber) {
         super.onCallStateChanged(state, incomingNumber);
-        if (incomingNumber== null) incomingNumber="null";
+        if (incomingNumber == null) incomingNumber = "null";
+
+        if (MainAppWidget.c != null) Log.i("MainAppWidget.c", "!null");
+        else Log.i("MainAppWidget.c", "null");
         switch (state) {
             case TelephonyManager.CALL_STATE_IDLE:
+
+                if (MainAppWidget.c != null) {
+                    View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
+                    MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
+                    MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
+                    MainAppWidget.lv.setAdapter(MainAppWidget.adapter);
+                    MainAppWidget.listItemsLV.add("onCallStateChanged: CALL_STATE_IDLE " + System.currentTimeMillis());
+                    //adapter.addAll(listItemsLV);
+                    MainAppWidget.adapter.notifyDataSetChanged();
+                }
                 Log.i(LOG_TAG, "onCallStateChanged: CALL_STATE_IDLE");
                 MyService.StopPalyPlayer();
                 break;
@@ -40,19 +53,37 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                 Log.i(LOG_TAG, "incomingNumber: " + incomingNumber);
                 //MyService.runGetVolumep();
 
-                for (String item : MainAppWidget.listItems)
-                {
+                for (String item : MainAppWidget.listItems) {
+                    if (MainAppWidget.c != null) {
+                        View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
+                        MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
+                        MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
+                        MainAppWidget.lv.setAdapter(MainAppWidget.adapter);
 
-                    Context context = MainAppWidget.c;
+                        MainAppWidget.listItemsLV.add(incomingNumber + " N " + System.currentTimeMillis());
+                        //adapter.addAll(listItemsLV);
+                        MainAppWidget.adapter.notifyDataSetChanged();
+                    }
+
+                   /* Context context = MainAppWidget.c;
                     AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                     RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.main_app_widget);
                     ComponentName thisWidget = new ComponentName(context, MainAppWidget.class);
                     remoteViews.setTextViewText(R.id.appwidget_text, incomingNumber + " " + System.currentTimeMillis());
-                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+                    appWidgetManager.updateAppWidget(thisWidget, remoteViews);*/
 
                     if (incomingNumber.equals(item.split("#")[0].toString())) {
 
-                        remoteViews.setTextViewText(R.id.appwidget_text,"!! " + incomingNumber + " " +System.currentTimeMillis());
+                        if (MainAppWidget.c != null) {
+                            View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
+                            MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
+                            MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
+                            MainAppWidget.lv.setAdapter(MainAppWidget.adapter);
+                            MainAppWidget.listItemsLV.add(incomingNumber + " Y " + System.currentTimeMillis());
+                            //adapter.addAll(listItemsLV);
+                            MainAppWidget.adapter.notifyDataSetChanged();
+                        }
+                        // remoteViews.setTextViewText(R.id.appwidget_text,"!! " + incomingNumber + " " +System.currentTimeMillis());
                         MyService.runGetVolumep();
                     }
                 }

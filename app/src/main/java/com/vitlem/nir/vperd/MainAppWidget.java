@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RemoteViews;
 
 import java.util.ArrayList;
@@ -27,6 +29,9 @@ public class MainAppWidget extends AppWidgetProvider {
     public static AlarmManager m=null;
     public static Calendar TIME=null;
     public static Intent i=null;
+    public static ListView lv;
+    public static ArrayList<String> listItemsLV = new ArrayList<String>();
+    public static ArrayAdapter<String> adapter;
     static RemoteViews remoteViews;
     static Context c  ;
     public static boolean runService = true;
@@ -39,7 +44,7 @@ public class MainAppWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        Log.d("debug", "onUpdate");
+        Log.d("debug", "updateAppWidget");
         c= context;
         CharSequence widgetText = MainAppWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
         // Construct the RemoteViews object
@@ -57,10 +62,13 @@ public class MainAppWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
+
+
+
         Log.d("debug", "onUpdate");
         final int N = appWidgetIds.length;
         remoteViews = new RemoteViews(
-                context.getPackageName(),R.layout.main_app_widget);
+                context.getPackageName(), R.layout.main_app_widget);
         for (int i = 0; i < N; ++i) {
 
             //remoteViews.setOnClickPendingIntent(R.id.UButton, getPendingSelfIntent(context, ClickToOff));
@@ -68,24 +76,23 @@ public class MainAppWidget extends AppWidgetProvider {
                     remoteViews);
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds);
-if (runService)
-{
-    Log.d("CreateAlarm","CreateAlarm");
-    m = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (runService) {
+            Log.d("CreateAlarm", "CreateAlarm");
+            m = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-    TIME = Calendar.getInstance();
-    TIME.set(Calendar.MINUTE, 0);
-    TIME.set(Calendar.SECOND, 0);
-    TIME.set(Calendar.MILLISECOND, 0);
+            TIME = Calendar.getInstance();
+            TIME.set(Calendar.MINUTE, 0);
+            TIME.set(Calendar.SECOND, 0);
+            TIME.set(Calendar.MILLISECOND, 0);
 
-    i = new Intent(context, MyService.class);
+            i = new Intent(context, MyService.class);
 
-    if (service == null) {
-        service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
-    }
+            if (service == null) {
+                service = PendingIntent.getService(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
+            }
 
-    m.setRepeating(AlarmManager.RTC, TIME.getTime().getTime(), 300 * 1000, service);
-}
+            m.setRepeating(AlarmManager.RTC, TIME.getTime().getTime(), 300 * 1000, service);
+        }
 
         Log.d("AppWidget", "onUpdate");
 
@@ -123,7 +130,11 @@ if (runService)
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         ComponentName thisAppWidget = new ComponentName(context.getPackageName(), MainAppWidget.class.getName());
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
-        Log.d("debug", "Somthing Clicked");
+        Log.d("debug", "onReceive");
+
+
+
+
        // Log.d("i", String.valueOf(i));
        // Log.d("intent.getAction()",intent.getAction().toString());
         switch (intent.getAction().toString()) {
