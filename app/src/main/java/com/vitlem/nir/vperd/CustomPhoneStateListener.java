@@ -1,5 +1,7 @@
 package com.vitlem.nir.vperd;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -37,14 +39,26 @@ public class CustomPhoneStateListener extends PhoneStateListener {
             case TelephonyManager.CALL_STATE_IDLE:
 
                 if (MainAppWidget.c != null) {
+                    Log.i("MainAppWidget.c", "CALL_STATE_IDLE!null");
                     View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
+                    if (v!=null) Log.i("MainAppWidget.c", "v!null");
                     MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
+                    if (MainAppWidget.lv!=null) Log.i("MainAppWidget.c", "MainAppWidget.lv!null");
                     MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
+                    if (MainAppWidget.adapter!=null) Log.i("MainAppWidget.c", " MainAppWidget.adapter!null");
                     MainAppWidget.lv.setAdapter(MainAppWidget.adapter);
                     MainAppWidget.listItemsLV.add("onCallStateChanged: CALL_STATE_IDLE " + System.currentTimeMillis());
-                    //adapter.addAll(listItemsLV);
+                   // MainAppWidget.adapter.addAll(MainAppWidget.listItemsLV);
                     MainAppWidget.adapter.notifyDataSetChanged();
+                   // MainAppWidget.remoteViews.setTextViewText(R.id.appwidget_text,"MainAppWidget.c != null");
+                    ComponentName thisWidget = new ComponentName(MainAppWidget.c, MainAppWidget.class);
+                    AppWidgetManager manager = AppWidgetManager.getInstance(MainAppWidget.c);
+                    int appWidgetIds[] = manager.getAppWidgetIds(new ComponentName(MainAppWidget.c, MainAppWidget.class));
+                    manager.notifyAppWidgetViewDataChanged(appWidgetIds,R.id.lView);
+                    manager.updateAppWidget(thisWidget, MainAppWidget.remoteViews);
+                   Log.i("MainAppWidget.c", " end if");
                 }
+
                 Log.i(LOG_TAG, "onCallStateChanged: CALL_STATE_IDLE");
                 MyService.StopPalyPlayer();
                 break;
@@ -54,7 +68,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                 //MyService.runGetVolumep();
 
                 for (String item : MainAppWidget.listItems) {
-                    if (MainAppWidget.c != null) {
+                   /* if (MainAppWidget.c != null) {
                         View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
                         MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
                         MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
@@ -63,7 +77,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                         MainAppWidget.listItemsLV.add(incomingNumber + " N " + System.currentTimeMillis());
                         //adapter.addAll(listItemsLV);
                         MainAppWidget.adapter.notifyDataSetChanged();
-                    }
+                    }*/
 
                    /* Context context = MainAppWidget.c;
                     AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
@@ -74,7 +88,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
 
                     if (incomingNumber.equals(item.split("#")[0].toString())) {
 
-                        if (MainAppWidget.c != null) {
+                      /*  if (MainAppWidget.c != null) {
                             View v = RelativeLayout.inflate(MainAppWidget.c, R.layout.main_app_widget, null);
                             MainAppWidget.lv = (ListView) v.findViewById(R.id.lView);
                             MainAppWidget.adapter = new ArrayAdapter<String>(MainAppWidget.c, android.R.layout.simple_list_item_1, MainAppWidget.listItemsLV);
@@ -82,7 +96,7 @@ public class CustomPhoneStateListener extends PhoneStateListener {
                             MainAppWidget.listItemsLV.add(incomingNumber + " Y " + System.currentTimeMillis());
                             //adapter.addAll(listItemsLV);
                             MainAppWidget.adapter.notifyDataSetChanged();
-                        }
+                        }*/
                         // remoteViews.setTextViewText(R.id.appwidget_text,"!! " + incomingNumber + " " +System.currentTimeMillis());
                         MyService.runGetVolumep();
                     }

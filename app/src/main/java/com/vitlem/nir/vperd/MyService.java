@@ -123,6 +123,7 @@ public class MyService extends Service {
                         lb.setLongitude(yLoc);
                         dis=  location.distanceTo(lb)/1000;
                         StatusM= "Lat " + latitude  + " \nLon " + longitude + " \ndistance " + String.valueOf(dis);*/
+                        StatusM= "Lat " + latitude  + " \nLon " + longitude;
                     }
                     else
                     {

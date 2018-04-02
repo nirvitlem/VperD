@@ -64,7 +64,7 @@ public class MainAppWidget extends AppWidgetProvider {
         // There may be multiple widgets active, so update all of them
 
 
-
+        c= context;
         Log.d("debug", "onUpdate");
         final int N = appWidgetIds.length;
         remoteViews = new RemoteViews(
@@ -102,6 +102,7 @@ public class MainAppWidget extends AppWidgetProvider {
     protected PendingIntent getPendingSelfIntent(Context context, String action) {
         Intent intent = new Intent(context, getClass());
         intent.setAction(action);
+        c= context;
         return PendingIntent.getBroadcast(context, 0, intent, 0);
     }
 
@@ -133,7 +134,7 @@ public class MainAppWidget extends AppWidgetProvider {
         Log.d("debug", "onReceive");
 
 
-
+        c= context;
 
        // Log.d("i", String.valueOf(i));
        // Log.d("intent.getAction()",intent.getAction().toString());

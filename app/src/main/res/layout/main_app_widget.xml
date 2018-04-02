@@ -8,12 +8,18 @@
 
     <ListView
         android:id="@+id/lView"
+        style="@style/Widget.AppCompat.Light.ListView.DropDown"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="33dp"
-        android:background="@color/lc" />
+        android:background="@color/lc"
+        android:saveEnabled="true"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="horizontal|vertical"
+        android:smoothScrollbar="true" />
 
     <TextView
         android:id="@+id/appwidget_text"
