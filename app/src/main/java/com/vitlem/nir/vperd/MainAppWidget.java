@@ -57,7 +57,9 @@ public class MainAppWidget extends AppWidgetProvider {
         listItems= loadTitlePref(context,1);
 
         appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
-    }
+
+
+       }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
